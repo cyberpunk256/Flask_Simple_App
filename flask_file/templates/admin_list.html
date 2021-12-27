@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html><meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/pure-min.css">
+  <link rel="stylesheet" href="/static/style.css?v=a7">
+<body><div class="content">
+  <h1>Admin page</h1>
+  {% for f in files %}
+    <div style="border: 1px solid silver;
+                padding: 8px; margin: 8px;
+                background-color: #fffff0;">
+      <p>{{ f.name }} - {{ f.memo }} - 
+        {{ f.time_limit | datetime }} - {{ f.count }}times<br>
+        <a href="/admin/remove/{{ f.id }}?pw={{ pw }}">delete</a>
+        - <a href="/download/{{ f.id }}">download</a></p> 
+    </div>
+  {% endfor %}
+  </div>
+</body></html>
